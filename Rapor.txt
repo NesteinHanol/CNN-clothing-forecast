@@ -1,0 +1,48 @@
+## Python 3.6.5 
+##Gerekli kütüphaneler:
+kares = https://pypi.org/project/Keras/
+itertools = https://pypi.org/project/more-itertools/
+numpy = https://pypi.org/project/numpy/
+pandas = https://pypi.org/project/pandas/
+matplotlib = https://pypi.org/project/matplotlib/
+sklearn = https://pypi.org/project/scikit-learn/
+
+#----- Bilgilendirme -------
+--Hocam birçok hiper parametre olduğu için kendimce bir kaç deneme sonunda uygun değerler bulmaya çalıştım
+--Epoch = 10 ve batch_size =128 aldım 
+--Programı çalıştırdığınızda her epoch içindeki batch_size train değerlerinide ekrana yazdığı için konsol kısmı biraz karışık gözükebilir nedeni bu kullandığım .fit fonksiyonu jupiter gibi sistemlerde ekranda gif oluşturarak çıktı vermek için dizayn edilmiş bu yüzden konsolda gereksiz kalabalık yapıyor (gerçi her batch adımını görüyoruz) kapatmak için çok araştırma yaptım ama bulamadım lakin fonksiyonal bir hata yok sadece konsola her batch adımını yazdırıyor
+--Data augmentation kodunuda yazdım ama data augmentation yapmakla yapmamak arasında pek bir doğruluk oran değişimi olmadı o yüzden yorum satırı haline getirdim isterseniz açıp kullanabilirsiniz (satır 95 - 108)
+--Train işlemi bitince ekrana ilk olarak train doğruluk ve hata kaybı değerleri yazılıyor sonrasında train dosyası için Confusion Matrix tablosu açılıyor.Bu tabloda x ekseninde "True label" Y eksenindada "Predicted label" larımız var burada her bir sınıfın kaçtanesinin doğru bir şekilde atandığı ve kaç tanesinin yanlış atandığı yazılı.Tabloyu kapattıktan sonra otomatik olarak Test verisi için Confusion Matrix tablosu açılıyor.Benim yaptığım eğitim sonuç tabloları "TestConfusionMatrix.PNG" ve "TrainConfusionMatrix.PNG" olarak klosöre koydum hocam.
+
+# Ağ yapısı aşağıdaki gibidir (satır 59-78)
+#conv => dropout => cov => dropout => conv => dropout => cov => max pool => dropout => fully connected
+
+Performans ve Sonuç Tablosu
+
+Eğitimde ortalama Doğruluk oranı (Accuracy) : 0.9662
+Testte ortalama Doğruluk oranı (Accuracy) : 0.9319
+
+Eğitimde her bir sınıfın Doğruluk oranı (Accuracy)
+- 0 T-shirt/Top : 0.9535
+- 1 Trouser : 0.9975
+- 2 Pullover : 0.9538
+- 3 Dress : 0.9835
+- 4 Coat : 0.9381
+- 5 Sandal : 0.9991
+- 6 Shirt : 0.8606
+- 7 Sneaker : 0.9893
+- 8 Bag : 0.9951
+- 9 Ankle Boot: 0.9910
+
+Testte her bir sınıfın Doğruluk oranı (Accuracy)
+- 0 T-shirt/Top : 0.9010
+- 1 Trouser : 0.9950
+- 2 Pullover : 0.9010
+- 3 Dress : 0.9530
+- 4 Coat : 0.9000
+- 5 Sandal : 0.9810
+- 6 Shirt : 0.7670
+- 7 Sneaker : 0.9640
+- 8 Bag : 0.9830
+- 9 Ankle Boot: 0.9740
+
